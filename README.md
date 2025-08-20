@@ -60,8 +60,9 @@ python -m flask run --host=0.0.0.0 --port=5000
 -   Ensure PostgreSQL is installed and running.
 -   Create a database:
 
-``` sql
-CREATE DATABASE farmsight360;
+``` bash
+cd db_setup
+python db_setup.py
 ```
 
 -   Update your database credentials in `config.py` or `.env`.
