@@ -4,9 +4,14 @@ from flask_cors import CORS
 from datetime import datetime, date
 import uuid # For generating unique user IDs
 from werkzeug.security import generate_password_hash, check_password_hash
+import os
+from dotenv import load_dotenv
 
 # Import the database object and models from the setup script
 from db_setup import db, User, Worker, Attendance, Yield, Sale, Financial, Inventory
+
+# Load environment variables from the .env file
+load_dotenv()
 
 # Initialize the Flask application
 app = Flask(__name__)
@@ -15,7 +20,8 @@ app = Flask(__name__)
 CORS(app)
 
 # Database configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://farmappapi:Farmapp123@127.0.0.1:5432/farmsync'
+# Now reading the database URL from the environment variable
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Make sure to bind the db object to this app instance
