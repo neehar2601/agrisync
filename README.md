@@ -43,8 +43,8 @@ resources and boost profitability.
 ### 1️⃣ Clone the repository
 
 ``` bash
-git clone https://github.com/neehar2601/FarmSight-360-Yield-Workforce-Tracker.git
-cd FarmSight-360-Yield-Workforce-Tracker
+git clone https://github.com/neehar2601/agrisync
+cd agrisync/
 ```
 
 ### 2️⃣ Setup Backend
@@ -52,7 +52,7 @@ cd FarmSight-360-Yield-Workforce-Tracker
 ``` bash
 cd backend
 pip install -r requirements.txt
-python app.py
+python -m flask run --host=0.0.0.0 --port=5000
 ```
 
 ### 3️⃣ Setup PostgreSQL Database
@@ -69,10 +69,13 @@ CREATE DATABASE farmsight360;
 ### 4️⃣ Run the Application
 
 ``` bash
-python app.py
+npm create vite@latest my-project --template react #replace my-project with any name
+cd my-project
+npm install
+#update the contents of app.jsx indide my-project directory
+npm run dev
 ```
-
-Application should now be running at: `http://localhost:5000`
+use ```npm run build ``` when application id deployment ready
 
 ## 🧪 Future Enhancements
 
