@@ -5,12 +5,16 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import uuid # For generating unique user IDs
 from werkzeug.security import generate_password_hash, check_password_hash
+from dotenv import load_dotenv
+
+# Load environment variables from the .env file
+load_dotenv()
 
 # A separate Flask app instance just for the database setup script
 app = Flask(__name__)
 
 # Database configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://farmappapi:Farmapp123@127.0.0.1:5432/farmsync'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize the database object
