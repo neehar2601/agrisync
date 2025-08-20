@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from datetime import datetime, date
 import uuid # For generating unique user IDs
+from sqlalchemy import create_engine
 from werkzeug.security import generate_password_hash, check_password_hash
 
 # Initialize the Flask application
@@ -15,7 +16,7 @@ CORS(app)
 # Database configuration
 # IMPORTANT: Replace 'username' and 'password' with your PostgreSQL credentials
 # For a cloud-native setup, these should be environment variables.
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://farmapp:Farmapp%40123@localhost:5432/farmsync'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://username:password@IPaddress:5432/DBname'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
