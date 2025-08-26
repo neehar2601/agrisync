@@ -14,28 +14,6 @@ function App() {
   const [currentPage, setCurrentPage] = useState('dashboard');
   const [selectedWorker, setSelectedWorker] = useState(null);
   const [showRegister, setShowRegister] = useState(false);
-  const [mockData] = useState({
-    financialSummary: {
-      totalRevenue: 150000,
-      totalExpenses: 75000
-    },
-    metrics: {
-      totalYield: 2500,
-      activeWorkers: 12
-    },
-    weather: {
-      temp: '28°C',
-      condition: 'Sunny',
-      windSpeed: '10 km/h',
-      humidity: '65%',
-      forecast: 'Clear skies'
-    },
-    financialTrends: [
-      { month: 'Jan', revenue: 12000, expenses: 8000 },
-      { month: 'Feb', revenue: 15000, expenses: 9000 },
-      { month: 'Mar', revenue: 18000, expenses: 10000 }
-    ]
-  });
 
   if (!isAuthenticated) {
     if (showRegister) {
@@ -73,7 +51,7 @@ function App() {
       <div className="flex-1 flex flex-col overflow-hidden">
         <TopBar />
         <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100">
-          {currentPage === 'dashboard' && <Dashboard data={mockData} />}
+          {currentPage === 'dashboard' && <Dashboard />}
           {currentPage === 'yields' && <YieldsSales />}
           {currentPage === 'financials' && <Financials />}
           {currentPage === 'workers' && (
